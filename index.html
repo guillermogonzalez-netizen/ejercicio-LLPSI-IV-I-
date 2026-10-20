@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio de Latín - Capitulum IV</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f6f8;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    h1 {
+      color: #2c3e50;
+      margin-bottom: 10px;
+    }
+
+    p.subtitle {
+      color: #666;
+      font-size: 1.1rem;
+    }
+
+    .container {
+      position: relative;
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 800px;
+    }
+
+    .game-area {
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+      margin-bottom: 30px;
+    }
+
+    .column {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      width: 40%;
+      z-index: 2;
+    }
+
+    .word-card {
+      padding: 12px 18px;
+      background-color: #eef2f5;
+      border: 2px solid #cbd5e1;
+      border-radius: 8px;
+      cursor: pointer;
+      text-align: center;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: all 0.2s ease;
+      user-select: none;
+    }
+
+    .word-card:hover {
+      background-color: #e2e8f0;
+      border-color: #94a3b8;
+    }
+
+    .word-card.selected {
+      background-color: #3b82f6;
+      color: white;
+      border-color: #1d4ed8;
+      transform: scale(1.02);
+    }
+
+    .word-card.correct {
+      background-color: #10b981 !important;
+      color: white !important;
+      border-color: #047857 !important;
+    }
+
+    .word-card.incorrect {
+      background-color: #ef4444 !important;
+      color: white !important;
+      border-color: #b91c1c !important;
+    }
+
+    svg#connections {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    line {
+      stroke-width: 3;
+      stroke-linecap: round;
+      transition: stroke 0.3s ease;
+    }
+
+    .controls {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    button {
+      padding: 10px 24px;
+      font-size: 1rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    .btn-check {
+      background-color: #2563eb;
+      color: white;
+    }
+
+    .btn-check:hover {
+      background-color: #1d4ed8;
+    }
+
+    .btn-reset {
+      background-color: #64748b;
+      color: white;
+    }
+
+    .btn-reset:hover {
+      background-color: #475569;
+    }
+
+    .result-msg {
+      text-align: center;
+      margin-top: 15px;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Capitulum IV: Dominus et Servi</h1>
+    <p class="subtitle">Relaciona las palabras en Latín con su significado en Castellano</p>
+  </header>
+
+  <div class="container
